@@ -55,8 +55,11 @@ After rigorous evaluation, the **best model** is:
 - **Accuracy:** 0.98  
 - **Recall:** 0.99  
 - **Confusion Matrix:**
-[[305 13]
-[ 7 529]]
+
+|                | Predicted Rejected (0) | Predicted Approved (1) |
+|----------------|-----------------------|-----------------------|
+| **Actual Rejected (0)** | 305                   | 13                    |
+| **Actual Approved (1)** | 7                     | 529                   |
 
 - **Reason for selection:** High accuracy and recall with balanced performance across both loan approval and rejection classes.
 
