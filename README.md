@@ -1,87 +1,84 @@
-# Loan-Eligibility-Prediction
+# 🚀 AI-Loan-Predictor
+> *Note: This repository was created as part of our semester project in the AI and Data Science program (Post Graduate Certificate) at Loyalist College, Toronto.*
 
-Note: This repository was created as part of our semester project in the Ai and Data Science program (PGWD) at Loyalist College in Toronto.
+---
 
-# Problem Statement: 
-In the modern financial landscape, the influx of loan applications poses a significant challenge for institutions. Manual evaluation of these applications is time-consuming and prone to errors. To streamline this process, our task is to leverage machine learning techniques and algorithms to build a loan eligibility prediction system to help aid and streamline the process of approve or reject loan request.
+## 📝 Problem Statement
+In the modern financial landscape, the influx of loan applications poses significant challenges for institutions. Manual evaluation of these applications is time-consuming and prone to error. Our task was to build a **machine learning–powered loan eligibility prediction system** to automate the decision of approving or rejecting loan requests, thus streamlining the approval process.
 
-#Technologies Used:
-1) Co-Lab
-2) Python
-   libraries: Pandas,
-              Numpy,
-              Matplotlib,
-              Seaborn.
+---
 
-# The Flow of project is As Follows:
+## ⚙ Technologies Used
+- Google Colab
+- Python  
+- **Libraries:** Pandas, Numpy, Matplotlib, Seaborn, Scikit-learn, Joblib
 
-1.Problem Definition and Data Collection:
-  	  a) Clearly define the problem we want to solve.
-	  b) Collect the Dataset
-2.Data Preprocessing:
-	  a) Clean the data.
-3.Exploratory Data Analysis (EDA):
-	  a) Visualize the data (histograms, scatter plots, etc.).
-	  b) Understand the distribution of features.
-	  c) Identify patterns, correlations, and anomalies.
-4.Feature Engineering:
-	  a) Select relevant features based on domain knowledge and Insights from EDA.
-5.Data Splitting:
-	  a) Divide the data into training, validation, and test sets.
-6.Model Selection:
-	  a) Choose appropriate algorithms
-7.Model Training & Evaluation:
-	  a) Train the selected model using the training data.
-	  b) Evaluate the model’s performance using validation data (accuracy, precision, recall, etc.).
-8.Model Tuning:
-	  a) Optimize model hyperparameters 
-9.Model Validation and Visualization:
-	  a) Validate the tuned model on the test set.
-	  b) Visualize model predictions and compare them with actual values.
-10.Conclusions:
-	  a) Analyse the model’s performance.
-	  b) Draw conclusions based on the results.
+---
 
+## 📊 Dataset
+**Source:** [Kaggle Loan Approval Prediction Dataset](https://www.kaggle.com/datasets/architsharma01/loan-approval-prediction-dataset)  
+**Rows:** 4269  
+**Features:** 13  
 
-# Data Set:
-The dataset we're using here is from Kaggel (i.e. https://www.kaggle.com/datasets/architsharma01/loan-approval-prediction-dataset)
+| Feature Name               | Description |
+|----------------------------|-------------|
+| loan_id                    | Unique loan identifier |
+| no_of_dependents            | Number of dependents |
+| education                   | Graduate / Not Graduate |
+| self_employed               | Employment status |
+| income_annum                | Annual income |
+| loan_amount                 | Requested loan amount |
+| loan_term                   | Loan term (years) |
+| cibil_score                 | Credit score |
+| residential_assets_value     | Value of residential assets |
+| commercial_assets_value      | Value of commercial assets |
+| luxury_assets_value          | Value of luxury assets |
+| bank_asset_value             | Bank balance |
+| loan_status                  | Loan approval status (Approved / Rejected) |
 
-Features of the Dataset
+---
 
-      FEATURE NAME                	  DESCRIPTION
-1.  loan_id			        :Unique Id of Loan
-2.  no_of_dependents 	          	:Number of Dependents of the Applicant
-3.  education		                :Education of the Applicant (Graduate/Not Graduate)
-4.  self_employed	              	:Employment Status of the Applicant (Yes/No)
-5.  income_annum	              	:Annual Income of the Applicant
-6.  loan_amount		              	:Applied Loan Amount
-7.  loan_term			        :Loan Term in Years
-8.  cibil_score		              	:Credit Score of the applicant
-9.  residential_assets_value	        :Residential Assets Value of the Applicant
-10. commercial_assets_value	        :Commerical Assets Value of the Applicant	
-11. luxury_assets_value		        :Luxury Assets Value of the Applicant
-12. bank_asset_value		        :Current Bank Balance of the Applicant
-13. loan_status			        :Loan Approval Status (Approved/Rejected)
+## 📈 Project Flow
+1️⃣ **Problem definition + dataset selection**  
+2️⃣ **Data preprocessing:** handled nulls, cleaned categories, converted categorical features to numerical  
+3️⃣ **EDA:** histograms, box plots, KDE plots, correlation matrix, pair plots  
+4️⃣ **Feature scaling:** MinMaxScaler and StandardScaler  
+5️⃣ **Model selection:** Logistic Regression + Random Forest  
+6️⃣ **Model evaluation:** accuracy, recall, confusion matrix, classification report  
+7️⃣ **Model export:** best model + scaler saved for deployment  
 
-# Current Status
+---
 
-We have completed bivariate analysis and are now working on multivariate analysis.
+## ✅ Final Model
+After rigorous evaluation, the **best model** is:
+- **Random Forest Classifier with MinMaxScaler**
+- **Accuracy:** 0.98  
+- **Recall:** 0.99  
+- **Confusion Matrix:**
+[[305 13]
+[ 7 529]]
 
-# Work completed until now 
+- **Reason for selection:** High accuracy and recall with balanced performance across both loan approval and rejection classes.
 
-1. Our data has 4269 rows and 13 unique features.
-2. Our data contains no null values.
-3. changed our object features (e.g., education, self_employed, loan_status) to "1" or "0" (fortunately, all object type features have just two unique values).
-4. Univariant Analysis: Visualized the distribution of Features using Histogram, kernel density estimate (KDE) plot, Box plots,etc..
-5. Bivariate Analysis: Measured and plotted Correlation Matrix to understand relationship between two features.
+---
 
-# Observations (*As of now)
+## 💾 Deployment
+We exported:
+- `rf_minmax.pkl` — trained Random Forest model  
+- `minmax_scaler.pkl` — corresponding MinMaxScaler  
 
-->Income and Loan Dynamics: Strong linear relationship between income and loan amount. Higher income individuals are more likely to obtain larger loans and possess valuable assets.
-->CIBIL Score and Loan Status: CIBIL score plays a critical role in determining loan status, as evidenced by their strong positive correlation and covariance. A good CIBIL score increases the likelihood of a favorable loan status.
-->Asset Values: Luxury and residential asset values are strongly associated with both income and loan amount. Applicants with higher incomes and larger loans tend to report higher asset values, indicating financial stability and creditworthiness.
-  
-->Visual Patterns: Pair plot confirms the linear relationships observed in the correlation matrix and highlights the distribution of data points. Clear trends in scatter plots align with statistical measures, providing a holistic understanding of data relationships.
+✅ The model is ready for deployment via **Flask API**, **Streamlit app**, or on **Fly.io / Render / Heroku**.
 
+---
 
+## 🔍 Key Insights
+- **CIBIL score** is the most significant factor influencing loan approval.
+- **Income and loan amount** are positively correlated — higher income generally means larger loans.
+- **Asset values** (luxury, residential) correlate with financial stability and loan amount.
+
+---
+
+## 🚀 Next Steps
+- Enhance model with additional features (e.g. employment duration, location data).  
+- Deploy as a scalable web service for real-time loan eligibility prediction.
 
